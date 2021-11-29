@@ -20,16 +20,16 @@
 <body>
 <!--Barra de navegação-->
   <nav id="bn" class="navbar fixed-top navbar-expand-lg bg-green navbar-dark p-2" class="d-flex justify-content-center">
-    <a class="navbar-brand" href="{{('http://127.0.0.1:8000')}}"><cite title="BioRhyme text-black">MONEYAGE</cite></a>
+    <a class="navbar-brand" href="{{('http://127.0.0.1:8000/sites/index')}}"><cite title="BioRhyme text-black">MONEYAGE</cite></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"  aria-expanded="false">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a href="{{('http://127.0.0.1:8000')}}" class="nav-link"><cite title="BioRhyme">Inicio</cite></a>
+          <a href="{{('http://127.0.0.1:8000/sites/index')}}" class="nav-link"><cite title="BioRhyme">Inicio</cite></a>
         </li>
-        @if (URL::current() == url('http://127.0.0.1:8000') || URL::current() == url('http://localhost:8000'))
+        @if (URL::current() == url('http://127.0.0.1:8000/sites/index') || URL::current() == url('http://localhost:8000/sites/index'))
         <li class="nav-item">
           <a href="#team" class="nav-link"><cite title="BioRhyme">Quem Somos</cite></a>
         </li>
@@ -42,20 +42,12 @@
         <li class="nav-item">
           <a href="#ftr" class="nav-link"><cite title="BioRhyme">Contatos</cite></a>
         </li>
-        @if (Route::has('login'))
-                <li class="nav-item" >
-                    @auth
-                        <a href="{{ url('/home') }}" class="nav-link">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="nav-link">Login</a>
-                </l1>
-                <li>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="nav-link">Cadastro</a>
-                        @endif
-                    @endauth
-                </li>
-            @endif
+        <li class="nav-item">
+          <a href="{{('http://127.0.0.1:8000/sites/signup')}}" class="nav-link"><cite title="BioRhyme">Cadastre-se</cite></a>
+        </li>
+        <li class="nav-item" >
+          <a href="{{('http://127.0.0.1:8000/sites/login')}}" class="nav-link"><cite title="BioRhyme">Login</cite></a>
+        </li>
         @endif
     </div>
   </nav>

@@ -10,7 +10,7 @@
                 <th scope="col">Texto</th>
                 <th scope="col">Ação</th>
             </tr>
-        </thead>
+        </thead> 
 
         @foreach ($posts as $post) 
         <tbody>

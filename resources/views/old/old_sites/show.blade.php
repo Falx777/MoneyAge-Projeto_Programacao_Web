@@ -1,5 +1,5 @@
 @extends('layouts.tabletest') 
-
+ 
 @section('title', 'Editar') 
 
 @section('content')

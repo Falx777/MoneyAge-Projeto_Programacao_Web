@@ -13,7 +13,7 @@ class PostController extends Controller
 
     public function create(Request $request){
         Post::create([
-            'title' => $request->title,
+            'name' => $request->title,
             'text' => $request->text, 
         ]);
         $result = [
@@ -36,11 +36,11 @@ class PostController extends Controller
     }
 */
     public function show($id, Request $request){
-        $id = $request->id;
+        $id = $request->id; 
         //$post = Post::find($id);
         //forma alternativa
         $post = Post::where('id',$id)->get();
-        return view ('sites.show', compact('post'));
+        return view ('sites.show', compact('post')); 
     }
 
 }

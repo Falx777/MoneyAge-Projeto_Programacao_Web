@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class CreateMoneyagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('Title');
-            $table->string('Text');
+        Schema::create('moneyages', function (Blueprint $table) {
+            $table->integer('id');
+            $table->date('date');
+            $table->string('gender');
+            $table->string('opinion');
+            $table->string('wage');
+            $table->rememberToken();
             $table->timestamps();
-            
         });
     }
- 
+
     /**
      * Reverse the migrations.
      *
@@ -29,6 +31,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('moneyages');
     }
 }

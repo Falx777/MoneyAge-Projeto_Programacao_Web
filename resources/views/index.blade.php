@@ -46,7 +46,7 @@
   </div>
   <!--melque zedeque-->
   <div class="card" style="margin-left: 30px; margin-top: 30px; border-radius: 10px;">
-      <img class="card-img-top" src="/img/foto.jpg" alt="Imagem de capa do card" style="border-radius: 100%; padding : 10px;">
+      <img class="card-img-top" src="/img/dfsm.jpeg" alt="Imagem de capa do card" style="border-radius: 100%; padding : 10px;">
       <div class="card-body">
         <h5 class="card-title d-flex justify-content-center">Melque Zedeque</h5>
         <h6 class="card-text d-flex justify-content-center"><strong>Desenvolvedor Front End</strong> </h6>
