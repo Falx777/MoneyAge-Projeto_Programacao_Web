@@ -88,7 +88,7 @@
 
                         
                         <div class="form-group row"  style="margin-top: 20px;">
-                            <label for="wage" class="col-md-4 col-form-label text-md-right">Salário</label>
+                            <label for="wage" class="col-md-4 col-form-label text-md-right">Renda</label>
 
                             <div class="col-md-6">
                                 <input id="wage" type="text" class="form-control" name="wage" required >

@@ -60,37 +60,32 @@ Route::get('sites/about', function (){
     return view('sites.about');
 })->middleware('auth');
 
-Route::get('sites/show_table', function (){
-    return view('sites.show_table');
-})->middleware('auth');
+Route::get('sites/show_table/{id}', 'MoneyageController@show')->name('show_table')->middleware('auth');
+
+Route::get('sites/edit_table/{id}', 'MoneyageController@edit')->name('edit_table')->middleware('auth');
 
 Route::get('sites/creating_table', 'MoneyageController@new_table')->name('create_table')->middleware('auth');
 
 Route::post('sites/creating_table', 'MoneyageController@create_table')->name('creating_table')->middleware('auth');
 
+Route::match(['put', 'patch'],'sites/edit_table/{id}', 'MoneyageController@update')->name('update')->middleware('auth');
+
 Route::post('sites/show_table_name', 'MoneyageController@show_table_name')->name('show_table_name')->middleware('auth');
 
 Route::post('sites/verify_id_tables', 'MoneyageController@verify_id_tables')->name('verify_id_tables')->middleware('auth');
 
+Route::post('sites/compare', 'MoneyageController@compare_values')->name('compare_values')->middleware('auth');
+
 //Route::get('sites/home/{id}', 'MoneyageController@verify')->name('verify');
 Route::put('opinion', 'MoneyageController@opinion')->name('post_opinion')->middleware('auth');
 
-
-//Route::get('sites/denied', function (){
-//    return view('sites.denied');
-//});
-
-//Route::get('logoff', 'MoneyageController@logoff')->name('logoff');
-
-//Route::get('verification', 'MoneyageController@verification')->name('verification');
-
-
-
-
 Route::get('sites/create_post', function(){
     return view('sites.create_post');
-});
+})->middleware('auth');
 
+Route::get('sites/compare', function(){
+    return view('sites.compare');
+})->middleware('auth');
 
 Route::get('/welcome', 'HomeController@test');
 Route::get('/home', 'HomeController@test');

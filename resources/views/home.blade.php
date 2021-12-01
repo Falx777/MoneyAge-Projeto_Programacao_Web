@@ -1,6 +1,7 @@
 @extends('layouts.custom-2')
 
 @section('content')
+{{\App\Http\Controllers\MoneyageController::false_compare()}}
 <div class="container">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -39,25 +40,31 @@
         @endif
     @endforeach
         @foreach (\App\Http\Controllers\MoneyageController::verify_id_tables() as $ids )    
-            @if (\App\Http\Controllers\MoneyageController::count() > 0 && \App\Models\Table::where('id', '=',$ids['id'])->get('user_id')[0]['user_id'] == Auth::id())
+            @if ( \App\Models\Table::where('id', '=',$ids['id'])->get('user_id')[0]['user_id'] == Auth::id())
+                {{\App\Http\Controllers\MoneyageController::add()}}
                 <div style="padding-top:20px; margin:30px; background-color:#f8f9fa; border-radius:20px" class="d-flex">
                     <table class="table table-light d-flex flex-row bd-highlight">
-                        <tbody>
+                        <tbody class="d-flex">
                             
                                 <tr>
                                     <th scope="row" >{{(\App\Models\Table::where('id', '=',$ids['id'])->get('name')[0]['name'])}}</th> 
                                 </tr>
-                            
+                                <!--<tr>
+                                    <th>TOTAL: {{ \App\Http\Controllers\MoneyageController::sum(\App\Models\Values::where('id', '=',$ids['id'])->get('id')[0]['id'])}}</th>
+                                </tr>-->
+                                <tr>
+                                    <th>Saldo: {{ \App\Http\Controllers\MoneyageController::balance(\App\Models\Values::where('id', '=',$ids['id'])->get('id')[0]['id'])}}</th>
+                                </tr>
                         </tbody>
                     </table>
                     <table class="table table-light d-flex flex-row-reverse bd-highlight">
                         <tbody>
                             <tr>
                                 <td>
-                                    <a href="http://localhost:8000/sites/show_table" class="btn btn-success">Exibir</a>
+                                    <a href="http://localhost:8000/sites/show_table/{{$ids['id']}}" class="btn btn-success">Exibir</a>
                                 </td>
                                 <td>
-                                    <a href="#" class="btn btn-primary">Editar</a>
+                                    <a href="http://localhost:8000/sites/edit_table/{{$ids['id']}}" class="btn btn-primary">Editar</a>
                                 </td>
                                 <td >
                                     <a href="{{route('delete_table', $ids)}}" type="submit" class="btn btn-danger">Deletar</a>
@@ -67,11 +74,28 @@
                     </table>
                 </div>
             @endif
+
         @endforeach
-        <!--@//i//f//(\App\Http\Controllers\MoneyageController://:count//() < 3)-->
+        <!--criar-->    
+        @if (\App\Http\Controllers\MoneyageController::count() < 5)
+            <div>
+                <a href="{{route('create_table')}}" class="btn btn-success" style="margin-left: 30px; margin-top:10px; padding-inline:30px; padding-top:10px;padding-bottom:10px;">Criar</a>
+            </div>
+        @endif
+        <!--Verificar-->
+        @if (\App\Http\Controllers\MoneyageController::verify_table() == TRUE)
+                <div class="d-flex justify-content-center" style="padding-top: 50px;">
+                <h1 style="color:white;"><strong>POSSIBILIDADE DE COMPRA<strong></h1>
+            </div>
+            <div class="container d-flex" style="margin-top:30px;">
                 <div>
-                    <a href="{{route('create_table')}}" class="btn btn-success" style="margin-left: 30px; margin-top:10px; padding-inline:30px; padding-top:10px;padding-bottom:10px;">Criar</a>
+                    <p>Com esta função você pode verificar se uma <br>compra nova se encaixa ou não em seu orçamento mensal <br>e em quanto tempo seria preciso para pagá-la totalmente.</p>
                 </div>
+                <div>
+                    <a href="http://localhost:8000/sites/compare" class="btn btn-primary" style="margin-left: 30px; margin-top:10px; padding-inline:30px; padding-top:10px;padding-bottom:10px;">VERIFICAR</a>
+                </div>
+            </div> 
+        @endif
         <!-- vídeos -->
         <div class="d-flex justify-content-center" style="padding-top: 50px;">
             <h1 style="color:white;"><strong>VÍDEOS<strong></h1>

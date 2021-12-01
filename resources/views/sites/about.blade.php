@@ -27,7 +27,7 @@
                             </div>
 
                             <div style="margin-top: 20px;" class="d-flex">
-                                <label for="wage" class="col-md-4 col-form-label text-md-right"  style="margin-right: -180px;">Salário</label>
+                                <label for="wage" class="col-md-4 col-form-label text-md-right"  style="margin-right: -180px;">Renda</label>
 
                                 <div class="col-md-6" style="margin-right: -200px;">
                                     <input id="wage" type="text" class="form-control" name="wage" placeholder="{{ Auth::user()->wage }}" disabled>

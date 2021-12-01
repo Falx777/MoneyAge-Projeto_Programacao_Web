@@ -69,6 +69,7 @@
                                         Sair
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                      {{\App\Http\Controllers\MoneyageController::drop_i()}}
                                         @csrf
                                     </form>
                                 </div>

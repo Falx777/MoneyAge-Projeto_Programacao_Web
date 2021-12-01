@@ -13,7 +13,7 @@
             <h5><strong>Nome </strong></h5>
         </div>
         <div>
-            <input type="text" class="form-control"name="name" placeholder="gastos" required >
+            <input type="text" class="form-control"name="name" placeholder="gastos" required step="0.01" >
         </div>
     </div>
     <table class="table table-secondary">
@@ -26,82 +26,82 @@
     <tbody>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name1"placeholder="EX.: comida" required >
+            <input type="text" class="form-control" name="name1"placeholder="EX.: comida" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control"name="value1" placeholder="00.00" required >
+            <input type="number" class="form-control"name="value1" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name2" placeholder="EX.: água" required >
+            <input type="text" class="form-control" name="name2" placeholder="EX.: água" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value2" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value2" placeholder="00.00"  required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name3" placeholder="EX.: energia" required >
+            <input type="text" class="form-control" name="name3" placeholder="EX.: energia" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value3" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value3" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name4" placeholder="EX.: internet" required >
+            <input type="text" class="form-control" name="name4" placeholder="EX.: internet" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value4" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value4" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name5" placeholder="EX.: recarga de chip" required >
+            <input type="text" class="form-control" name="name5" placeholder="EX.: recarga de chip" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value5" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value5" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name6" placeholder="EX.: assinatura mensal" required >
+            <input type="text" class="form-control" name="name6" placeholder="EX.: assinatura mensal" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value6" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value6" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name7" placeholder="EX.: aluguel" required >
+            <input type="text" class="form-control" name="name7" placeholder="EX.: aluguel" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value7"placeholder="00.00" required >
+            <input type="number" class="form-control" name="value7"placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name8" placeholder="EX.: gasolina/transporte" required >
+            <input type="text" class="form-control" name="name8" placeholder="EX.: gasolina/transporte" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value8" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value8" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name9" placeholder="EX.: festa" required >
+            <input type="text" class="form-control" name="name9" placeholder="EX.: festa" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value9" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value9" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
         <th scope="row">
-            <input type="text" class="form-control" name="name10" placeholder="EX.: viagem" required >
+            <input type="text" class="form-control" name="name10" placeholder="EX.: viagem" required step="0.01" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value10" placeholder="00.00" required >
+            <input type="number" class="form-control" name="value10" placeholder="00.00" required step="0.01" >
         </td>
         </tr>
         <tr>
@@ -109,7 +109,7 @@
             <input type="text" class="form-control" name="name11" placeholder="Campo opcional" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value11" placeholder="00.00">
+            <input type="number" class="form-control" name="value11" placeholder="00.00" step="0.01">
         </td>
         </tr>
         <tr>
@@ -117,7 +117,7 @@
             <input type="text" class="form-control" name="name12" placeholder="Campo opcional" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value12" placeholder="00.00">
+            <input type="number" class="form-control" name="value12" placeholder="00.00" step="0.01">
         </td>
         </tr>
         <tr>
@@ -125,7 +125,7 @@
             <input type="text" class="form-control" name="name13" placeholder="Campo opcional" >
         </th>
         <td>
-            <input type="number" class="form-control" name="value13" placeholder="00.00">
+            <input type="number" class="form-control" name="value13" placeholder="00.00" step="0.01">
         </td>
         </tr>
         <!--<tr>

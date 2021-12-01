@@ -20,17 +20,20 @@
             </tr>
         </thead>
         <tbody>
-            @for ($i = 1; $i < 13; $i++)
-                @if ((App\Models\Table::where('id','=',$id)->get('item' . strval($i)))[0]['item' . strval($i)] != NULL)
+            @for ($i = 1; $i <= 13; $i++)
+                <form method="post"  action="{{route('update', [$id])}}">
+                    @csrf
+                    @method('PUT')
                     <tr>
                     <th scope="row">
-                        <input disabled type="text" class="form-control" name="name1"placeholder="{{ (App\Models\Table::where('id','=',$id)->get('item' . strval($i)))[0]['item' . strval($i)] }}"  >
+                        <input type="text" class="form-control" name="{{'name' . strval($i)}}" value="{{ (App\Models\Table::where('id','=',$id)->get('item' . strval($i)))[0]['item' . strval($i)] }}"  >
                     </th>
-                    <td>
-                        <input disabled type="number" class="form-control"name="value1" placeholder="{{ (App\Models\Values::where('id','=',$id)->get('item'. strval($i)))[0]['item' . strval($i)] }}" required >
+                    <td class="d-flex">
+                            <input type="number" class="form-control" name="{{'item' . strval($i)}}" value="{{ (App\Models\Values::where('id','=',$id)->get('item'. strval($i)))[0]['item' . strval($i)] }}" >
+                            <input class="btn btn-success" type="submit" value="Enviar"></input>
                     </td>
                     </tr>
-                @endif
+                </form>
             @endfor
             <div style="margin-right:10px;margin-top: 5px;">
                 <h5><strong>TOTAL: {{ \App\Http\Controllers\MoneyageController::sum($id)}} </strong></h5>

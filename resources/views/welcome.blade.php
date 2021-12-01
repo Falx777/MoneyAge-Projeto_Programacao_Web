@@ -60,42 +60,47 @@
   <h2 id="tool" class="team  d-flex justify-content-center"><strong><cite title="BioRhyme">Reviews</cite></strong></h2>
 </div>
 <!--Tabela com as reviews-->
-<div id="tools">
-  <table class="table">
-    <thead >
-      <!--Títulos das colunas-->
-      <tr>
-        <th style="border-bottom:none; color: white;" scope="col">Usuário</th>
-        <th style="border-bottom:none; color:white;" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <!--josé-->
-      <tr>
-        <td style="border-bottom:none"><img src="/img/avatar1.jpg" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;"><p>José</p></td>
-        <td style="border-bottom:none" class="description">Muito bom o site, me ajudou bastante e estou muito grato aos desenvolvedores dele</td>
-        <td style="border-bottom:none" class="description2">
-          </td>
-      </tr>
-      <!--maria-->
-      <tr>
-        <td style="border-bottom:none"><img src="/img/avatarm1.jpg" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;"><p>Maria</p></td>
-        <td style="border-bottom:none" class="description">Melhor site 10/10</td>
-        <td style="border-bottom:none" class="description2">
-        </td>
-      </tr>
-      <!--cecília-->
-      <tr>
-        <td style="border-bottom:none"><img src="/img/avatarm2.jpg" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;"><p>Cecília</p></td>
-        <td style="border-bottom:none" class="description">se pudesse conectar a conta bancaria seria top, mas fora isso o site é um dos mais uteis que já vi</td>
-        <td style="border-bottom:none" class="description2">
-          </td>
-      </tr>
-      </tr>  
-    </tbody>
-  </table>
-</div>
-
+  <div id="tools">
+    <table class="table">
+      <thead >
+        <!--Títulos das colunas-->
+        <tr>
+          <th style="border-bottom:none; color: white;" scope="col">Usuário</th>
+          <th style="border-bottom:none; color:white;" scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <!--Review-->
+        @for ($i = 0; $i < count(\App\User::get('name')); $i++)
+          @if (\App\User::get('opinion')[$i]['opinion'] != NULL)
+            <h6 style="visibility:hidden;">{{$rn = random_int(0,1) }}</h6>
+            <tr>
+                <td style="border-bottom:none">
+                @if (\App\User::get('gender')[$i]['gender'] == "Feminino" || \App\User::get('gender')[$i]['gender'] == "FEMININO" || \App\User::get('gender')[$i]['gender'] == "feminino")
+                  @if ($rn == 1)
+                    <img src="/img/avatarm1.jpg" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;">
+                  @else
+                  <img src="/img/avatarm2.jpg" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;">
+                  @endif
+                @elseif (\App\User::get('gender')[$i]['gender'] == "Masculino" || \App\User::get('gender')[$i]['gender'] == "MASCULINO" || \App\User::get('gender')[$i]['gender'] == "masculino")
+                  @if ($rn == 1)  
+                    <img src="/img/avatar1.jpg" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;">
+                  @else
+                    <img src="/img/DV.png" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;">
+                  @endif
+                @else
+                    <img src="/img/DV.png" alt="" style="border-radius: 30%; padding : 10px;height: 150px; width:150px;">
+                @endif
+                <p>{{\App\User::get('name')[$i]['name']}}</p></td>
+              <td style="border-bottom:none" class="description"><h4>{{\App\User::get('opinion')[$i]['opinion']}}</h4></td>
+              <td style="border-bottom:none" class="description2">
+                </td>
+            </tr>
+          @endif
+        @endfor
+      </tbody>
+    </table>
+  </div>
 <!--empresa-->
 <div id="about" class="title">
   <!--título da empresa-->
