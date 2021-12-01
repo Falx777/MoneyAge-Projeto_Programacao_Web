@@ -5,7 +5,7 @@
     <h1></h1>
 </div>
 
-<div class="container" style="margin-top: 80px;">
+<div class="container" style="margin-top: 80px;margin-bottom:200px;">
     
     <div class="d-flex justify-content-center">
         <h3><strong>Análise de Preço</strong></h3>
@@ -15,7 +15,7 @@
         <div class="d-flex container" style="margin-top: 100px;">
             <div><h4>VALOR:</h4></div>
             <div class="align-self-start d-flex">
-                <input type="text" class="form-control" placeholder="00,00" name="value" aria-describedby="basic-addon2" required>
+                <input type="number" class="form-control" placeholder="00,00" name="value" aria-describedby="basic-addon2" required step="0.01">
                 <input class="btn btn-success" type="submit" value="ANALISAR"></input>
             </div>
             <div style="padding-left: 200px"></div>

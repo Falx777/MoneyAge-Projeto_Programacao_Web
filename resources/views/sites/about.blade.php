@@ -26,20 +26,6 @@
                                 </div> -->
                             </div>
 
-                            <div style="margin-top: 20px;" class="d-flex">
-                                <label for="wage" class="col-md-4 col-form-label text-md-right"  style="margin-right: -180px;">Renda</label>
-
-                                <div class="col-md-6" style="margin-right: -200px;">
-                                    <input id="wage" type="text" class="form-control" name="wage" placeholder="{{ Auth::user()->wage }}" disabled>
-                                </div>
-
-                                <!--<div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Editar
-                                    </button>
-                                </div>-->
-                            </div>
-
                             <div class="d-flex" style="margin-top: 20px;">
                                 <label for="date" class="col-md-4 col-form-label text-md-right" style="margin-right: -180px;">Data</label>
 
@@ -69,6 +55,25 @@
                                 </div>-->
 
                             </div>
+
+                            <div style="margin-top: 20px;">
+                                <form action="{{route('update_wage')}}" method="post"  class="d-flex">
+                                    @csrf
+                                    <label for="wage" class="col-md-4 col-form-label text-md-right"  style="margin-right: -180px;">Renda</label>
+
+                                    <div class="col-md-6" >
+                                        <input id="wage" type="text" class="form-control" name="wage" placeholder="{{ Auth::user()->wage}}">
+                                    </div>
+                                    <div>
+                                        <input class="btn btn-primary" style="margin-left: 10px;" type="submit" value="EDITAR"></input>
+                                    </div>
+                                </form>
+                                <!--<div class="col-md-8 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">
+                                        Editar
+                                    </button>
+                                </div>-->
+                            </div>
                     </div>
                 </div>
             </div>
@@ -94,11 +99,10 @@
     </form>
     
     <div class="btn-group-vertical" role="group" aria-label="Basic mixed styles example" style="margin:25px;">
-        <button type="button" class="btn btn-secondary">Resetar tabelas</button>
-        <form action="{{route('delete_account')}}" method="POST">
+        <form action="{{route('delete_account', Auth::id())}}" method="POST">
                     @csrf
                     @method('DELETE')
-                        <button type="button" class="btn btn-secondary">excluir conta</button> 
+                        <input type="submit" class="btn btn-danger" value="EXCLUIR CONTA"></input> 
         </form> 
     </div>  
     

@@ -29,7 +29,7 @@
                         <input type="text" class="form-control" name="{{'name' . strval($i)}}" value="{{ (App\Models\Table::where('id','=',$id)->get('item' . strval($i)))[0]['item' . strval($i)] }}"  >
                     </th>
                     <td class="d-flex">
-                            <input type="number" class="form-control" name="{{'item' . strval($i)}}" value="{{ (App\Models\Values::where('id','=',$id)->get('item'. strval($i)))[0]['item' . strval($i)] }}" >
+                            <input type="number" class="form-control" name="{{'item' . strval($i)}}" value="{{ (App\Models\Values::where('id','=',$id)->get('item'. strval($i)))[0]['item' . strval($i)] }}" step="0.01">
                             <input class="btn btn-success" type="submit" value="Enviar"></input>
                     </td>
                     </tr>

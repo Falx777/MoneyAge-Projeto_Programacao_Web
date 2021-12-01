@@ -72,7 +72,7 @@
       <tbody>
         <!--Review-->
         @for ($i = 0; $i < count(\App\User::get('name')); $i++)
-          @if (\App\User::get('opinion')[$i]['opinion'] != NULL)
+          @if ((\App\User::get('opinion')[$i]['opinion'] != NULL) && $i < 4)
             <h6 style="visibility:hidden;">{{$rn = random_int(0,1) }}</h6>
             <tr>
                 <td style="border-bottom:none">

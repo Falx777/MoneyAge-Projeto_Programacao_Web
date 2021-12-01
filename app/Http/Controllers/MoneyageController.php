@@ -131,9 +131,9 @@ class MoneyageController extends Controller
         return $opinion;
     }
 
-    protected function delete_account()
+    protected function delete_account($id)
     {
-        $user = User::findOrFail(Auth::id());
+        $user = User::findOrFail($id);
         $user->delete();
         return redirect('/');
     }
@@ -335,5 +335,10 @@ class MoneyageController extends Controller
             }
         }
         return $verify;
+    }
+
+    protected function update_wage(Request $request){
+        User::where('id', '=', Auth::id())->update(['wage' => $request->wage,]);
+        return redirect('sites/about');
     }
 }

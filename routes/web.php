@@ -76,6 +76,7 @@ Route::post('sites/verify_id_tables', 'MoneyageController@verify_id_tables')->na
 
 Route::post('sites/compare', 'MoneyageController@compare_values')->name('compare_values')->middleware('auth');
 
+Route::post('sites/about', 'MoneyageController@update_wage')->name('update_wage')->middleware('auth');
 //Route::get('sites/home/{id}', 'MoneyageController@verify')->name('verify');
 Route::put('opinion', 'MoneyageController@opinion')->name('post_opinion')->middleware('auth');
 
@@ -110,7 +111,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home/{id}', 'MoneyageController@delete')->name('delete_table');
 
-Route::delete('/home', 'MoneyageController@delete_account')->name('delete_account');
+Route::delete('sites/about/{id}', 'MoneyageController@delete_account')->name('delete_account')->middleware('auth');
 
 
 
