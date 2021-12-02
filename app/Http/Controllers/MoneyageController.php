@@ -134,6 +134,10 @@ class MoneyageController extends Controller
     protected function delete_account($id)
     {
         $user = User::findOrFail($id);
+        $table = Table::where('user_id','=',$id);
+        $values = Values::where('user_id','=',$id);
+        $table->delete();
+        $values->delete();
         $user->delete();
         return redirect('/');
     }
@@ -299,30 +303,33 @@ class MoneyageController extends Controller
     }    
 
     protected function compare_values( Request $request){
+        $inst = 0;
         $id_table = Values::where('user_id', '=', Auth::id())->get('id');
         $possibility = array( NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
         for ($i=0; $i < count($id_table); $i++) { 
             if (self::balance($id_table[$i]['id']) <= 0){
-                $possibility[$i] = [FALSE, (Table::where('user_id', '=', Auth::id())->get('name'))[$i]['name'],0];
+                $possibility[$i] = [FALSE, (Table::where('user_id', '=', Auth::id())->get('name'))[$i]['name'],0, NULL, $inst, NULL];
             }else{
                 $installment = 0;
                 $j = 1;
                 while (TRUE) {
                     $installment = ((self::balance($id_table[$i]['id']))*$j) - ($request -> value);
                     if ($installment >= 0){
+                        $inst = ($request -> value)/$j;
+                        $inst = round($inst, 3);
                         break;
                     }
                     $j ++;
                 }
                 
-                $possibility[$i] = [TRUE, (Table::where('user_id', '=', Auth::id())->get('name'))[$i]['name'], $j];
+                $possibility[$i] = [TRUE, (Table::where('user_id', '=', Auth::id())->get('name'))[$i]['name'], $j, ($request -> name), $inst, (Table::where('user_id', '=', Auth::id())->get('id'))[$i]['id']];
             }
             
         }
         global $compare;
         $compare = TRUE;
         return view('sites.compare', compact('possibility'));
-        //return ($possibility);
+        
     }
 
     public static function verify_table(){
@@ -340,5 +347,41 @@ class MoneyageController extends Controller
     protected function update_wage(Request $request){
         User::where('id', '=', Auth::id())->update(['wage' => $request->wage,]);
         return redirect('sites/about');
+    }
+
+    public static function add_to_table($id, $name, $value){
+
+        if (((Values::where('id', '=', $id)->get('item11'))[0]['item11'] == NULL)||((Values::where('id', '=', $id)->get('item11'))[0]['item11'] == 0)) {
+            Values::where('id', '=', $id)->update([
+                'item11' => $value,]);
+        }else if (((Values::where('id', '=', $id)->get('item12'))[0]['item12'] == NULL)||((Values::where('id', '=', $id)->get('item12'))[0]['item12'] == 0)) {
+            Values::where('id', '=', $id)->update([
+                'item12' => $value,]);
+        }else if (((Values::where('id', '=', $id)->get('item13'))[0]['item13'] == NULL)||((Values::where('id', '=', $id)->get('item13'))[0]['item13'] == 0)) {
+            Values::where('id', '=', $id)->update([
+                'item13' => $value,]);
+        }
+        if ((Table::where('id', '=', $id)->get('item11'))[0]['item11'] == NULL) {
+            Table::where('id', '=', $id)->update([
+                'item11' => $name,]);
+        }else if ((Table::where('id', '=', $id)->get('item12'))[0]['item12'] == NULL) {
+            Table::where('id', '=', $id)->update([
+                'item12' => $name,]);
+        }else if ((Table::where('id', '=', $id)->get('item13'))[0]['item13'] == NULL) {
+            Table::where('id', '=', $id)->update([
+                'item13' => $name,]);
+        }
+        return view('sites.show_table', compact('id'));
+    }
+
+    public static function eco(){
+        $eco = (Values::where('user_id', '=', Auth::id())->get('id'));
+        $max = 0;
+        for ($i=0; $i < count($eco); $i++) { 
+            if (self::balance($eco[$i]['id']) > $max) {
+                $max = self::balance($eco[$i]['id']);
+            }
+        }
+        return $max;
     }
 }

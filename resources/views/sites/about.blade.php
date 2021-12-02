@@ -62,7 +62,7 @@
                                     <label for="wage" class="col-md-4 col-form-label text-md-right"  style="margin-right: -180px;">Renda</label>
 
                                     <div class="col-md-6" >
-                                        <input id="wage" type="text" class="form-control" name="wage" placeholder="{{ Auth::user()->wage}}">
+                                        <input id="wage" type="text" class="form-control" name="wage" value="{{ Auth::user()->wage}}">
                                     </div>
                                     <div>
                                         <input class="btn btn-primary" style="margin-left: 10px;" type="submit" value="EDITAR"></input>

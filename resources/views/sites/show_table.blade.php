@@ -20,7 +20,7 @@
             </tr>
         </thead>
         <tbody>
-            @for ($i = 1; $i < 13; $i++)
+            @for ($i = 1; $i <= 13; $i++)
                 @if ((App\Models\Table::where('id','=',$id)->get('item' . strval($i)))[0]['item' . strval($i)] != NULL)
                     <tr>
                     <th scope="row">

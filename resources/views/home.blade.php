@@ -15,7 +15,11 @@
                     <div class="d-flex flex-column">
                         <div class="d-flex" >
                             <div>
-                                <h1><strong>{{ Auth::user()->name }}    , Parabéns! <br> Você economizou R$ X <br> Neste Mês! </strong></h1>
+                                @if (\App\Http\Controllers\MoneyageController::verify_table() == TRUE && \App\Http\Controllers\MoneyageController::eco()>0)
+                                    <h1><strong>{{ Auth::user()->name }}, Parabéns! <br> Você economizou R$ {{\App\Http\Controllers\MoneyageController::eco()}} Neste Mês! </strong></h1>
+                                @else
+                                    <h1><strong>{{ Auth::user()->name }}, Olá! </strong></h1>
+                                @endif
                             </div>
                             <!--Imagem para colocar ao lado-->
                             <div style=" margin-left: 100px;">

@@ -76,8 +76,13 @@ Route::post('sites/verify_id_tables', 'MoneyageController@verify_id_tables')->na
 
 Route::post('sites/compare', 'MoneyageController@compare_values')->name('compare_values')->middleware('auth');
 
+Route::get('compare/{id}/{name}/{value}', 'MoneyageController@add_to_table')->name('add_to_table')->middleware('auth');
+
 Route::post('sites/about', 'MoneyageController@update_wage')->name('update_wage')->middleware('auth');
-//Route::get('sites/home/{id}', 'MoneyageController@verify')->name('verify');
+
+Route::get('sites/home', 'MoneyageController@eco')->name('eco')->middleware('auth');
+
+
 Route::put('opinion', 'MoneyageController@opinion')->name('post_opinion')->middleware('auth');
 
 Route::get('sites/create_post', function(){
