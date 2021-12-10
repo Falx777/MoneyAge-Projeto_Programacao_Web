@@ -29,8 +29,6 @@ class HomeController extends Controller
     }
     
     public function test(){
-    	$user3s = User::all();
-		return view('welcome', compact('user3s'));
-        return view('home', compact('user3s'));
+		return view('welcome');
     }
 }

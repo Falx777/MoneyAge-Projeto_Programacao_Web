@@ -2,13 +2,6 @@
 
 @section('content')
 {{\App\Http\Controllers\MoneyageController::false_compare()}}
-        <script>
-            var msg = '{{Session::get('alert')}}';
-            var exist = '{{Session::has('alert')}}';
-            if(exist){
-                alert(msg);
-            }
-        </script>
 <div class="container">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -16,7 +9,6 @@
                         </div>
                     @endif
 </div>
-
 
 <div style=" margin: 100px; padding-top: 10px; background-color: white; border-radius: 50px;">
                 <div class="d-flex justify-content-flex-start" style=" margin: 30px;">
@@ -30,12 +22,12 @@
                                 @endif
                             </div>
                             <!--Imagem para colocar ao lado-->
-                            <div style=" margin-left: 200px;">
-                                <img src="/img/cm2.png" alt="" style="padding : 2px; height: 400px; width:550px;">
+                            <div style=" margin-left: 100px;">
+                                <img src="/img/money.png" alt="" style="padding : 2px; height: 400px; width:550px;">
                             </div>
                         </div>
                         <div >
-                            <!--<button class="btn btn-warning btn-lg" style="margin-left: 150px; margin-top:-300px; padding-inline:30px; padding-top:10px;padding-bottom:10px;">Ver detalhes</button>-->
+                            <button class="btn btn-warning btn-lg" style="margin-left: 150px; margin-top:-300px; padding-inline:30px; padding-top:10px;padding-bottom:10px;">Ver detalhes</button>
                         </div>
                     </div>
                 </div>
@@ -79,7 +71,7 @@
                                     <a href="http://localhost:8000/sites/edit_table/{{$ids['id']}}" class="btn btn-primary">Editar</a>
                                 </td>
                                 <td >
-                                    <a class="btn btn-danger" onclick="return deleteTable();" href="{{route('delete_table', $ids)}}"><i class="fa fa-trash"></i>DELETAR</a>
+                                    <a href="{{route('delete_table', $ids)}}" type="submit" class="btn btn-danger">Deletar</a>
                                 </td>
                             </tr>
                         </tbody>
@@ -91,9 +83,8 @@
         <!--criar-->    
         @if (\App\Http\Controllers\MoneyageController::count() < 5)
             <div>
-                <a href="{{route('create_table')}}" class="btn btn-success" v-b-tooltip.hover title="Crie aqui sua tabela"   style="margin-left: 30px; margin-top:10px; padding-inline:30px; padding-top:10px;padding-bottom:10px;">Criar</a>
+                <a href="{{route('create_table')}}" class="btn btn-success" style="margin-left: 30px; margin-top:10px; padding-inline:30px; padding-top:10px;padding-bottom:10px;">Criar</a>
             </div>
-
         @endif
         <!--Verificar-->
         @if (\App\Http\Controllers\MoneyageController::verify_table() == TRUE)
@@ -115,7 +106,7 @@
         </div>
         <div class="d-flex" style="padding-top: 50px;">
             <div style="margin: 50px;">
-                <h3 style="color: white; justify-content: center;">Aqui ao lado disponibilizamos alguns vídeos informativos caso você seja um novato no assunto de economia e investimento.<br> Esses vídeos explicam o básico para como se comportar com dinheiro e um guia de como investir.<br> Os vídeos são da Nathalia Arcuri do canal Me Poupe, do Thiago Nigro do canal Primo Rico e Breno Perrucho do canal Jóvens de Negócios e com eles você aprende de uma forma prática e rápida tudo que você precisa saber para começar no mundo do saving.</h3>
+                <h3 style="color: white;">Texto falando sobre playlist de vídeos que podem ajudar os usuários <br> a iniciar no mundo dos investimentos com esses vídeos da <br> Nathalia Arcuri do canal Me Poupe, do Thiago Nigro do canal Primo Rico <br> e Breno Perrucho do canal Jóvens de Negócios e blablabla... <br> Elaborar o texto!</h3>
             </div>
             <div class="d-flex flex-row-reverse bd-highlight">
                 <div style="margin:40px; border-style: solid; border-width: 10px; border-color: #66ff99;">
@@ -136,12 +127,5 @@
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLAKfMr7XPL79g3Um8RD_Cj_J7IpMhIAkO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
             </div>    
-        </div> 
-
-        <script>
-            function deleteTable() {
-                if(!confirm("Você realmente deseja deletar essa tabela?"))
-                event.preventDefault();
-            }
-        </script>
+        </div>
 @endsection

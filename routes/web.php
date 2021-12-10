@@ -44,21 +44,11 @@ Route::post('/create','MoneyageController@create')->name('create_user');
 //rota para verificar usuário
 Route::post('/verify','MoneyageController@verify')->name('verify_user');
 
-//rota para usuário logado
-Route::post('/logged','MoneyageController@logged')->name('logged_user');
 
-//rota para cadastrar usuário
-Route::get('sites/signup', function (){
-    return view('sites.signup');
-});
-
-Route::get('sites/home/', function (){
-    return view('sites.home');
-});
 
 Route::get('sites/about', function (){
     return view('sites.about');
-})->middleware('auth');
+})->name('about')->middleware('auth');
 
 Route::get('sites/show_table/{id}', 'MoneyageController@show')->name('show_table')->middleware('auth');
 
@@ -82,7 +72,6 @@ Route::post('sites/about', 'MoneyageController@update_wage')->name('update_wage'
 
 Route::get('sites/home', 'MoneyageController@eco')->name('eco')->middleware('auth');
 
-
 Route::put('opinion', 'MoneyageController@opinion')->name('post_opinion')->middleware('auth');
 
 Route::get('sites/create_post', function(){
@@ -95,26 +84,13 @@ Route::get('sites/compare', function(){
 
 Route::get('/welcome', 'HomeController@test');
 Route::get('/home', 'HomeController@test');
-//Route::get('/form', 'PostController@index');
-
-//Route::post('/create','PostController@create')->name('create_post');
-
-//Route::get('/show/{id}', 'PostController@show')->name('show_post');
-
-//Route::get('/posts', 'PostController@list_posts');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//NOVAS ROTAS
-
-Route::get('/home/{id}', 'MoneyageController@delete')->name('delete_table');
+Route::get('/home/{id}', 'MoneyageController@delete')->name('delete_table')->middleware('auth');
 
 Route::delete('sites/about/{id}', 'MoneyageController@delete_account')->name('delete_account')->middleware('auth');
 

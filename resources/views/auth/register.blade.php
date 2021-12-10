@@ -91,13 +91,13 @@
                             <label for="wage" class="col-md-4 col-form-label text-md-right">Renda</label>
 
                             <div class="col-md-6">
-                                <input id="wage" type="text" class="form-control" name="wage" required >
+                                <input id="wage" type="number" class="form-control" name="wage" step="0.01" required >
                             </div>
                         </div>
 
                         <div class="form-group row mb-0" style="margin-top: 20px;">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" href="http://127.0.0.1:8000/home">
                                     Cadastrar
                                 </button>
                             </div>

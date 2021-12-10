@@ -30,7 +30,7 @@
                                 <label for="date" class="col-md-4 col-form-label text-md-right" style="margin-right: -180px;">Data</label>
 
                                 <div class="col-md-6" style="margin-right: -200px;">
-                                    <input id="date" type="text" class="form-control" name="date" placeholder="{{ Auth::user()->date }}" disabled>
+                                    <input id="date" type="text" class="form-control" name="date" placeholder="{{ \App\Http\Controllers\MoneyageController::date_format() }}" disabled>
                                 </div>
                                 
                                 <!--<div class="col-md-8 offset-md-4">
@@ -62,7 +62,7 @@
                                     <label for="wage" class="col-md-4 col-form-label text-md-right"  style="margin-right: -180px;">Renda</label>
 
                                     <div class="col-md-6" >
-                                        <input id="wage" type="text" class="form-control" name="wage" value="{{ Auth::user()->wage}}">
+                                        <input id="wage" type="number" class="form-control" name="wage" value="{{ Auth::user()->wage}}" step="0.01">
                                     </div>
                                     <div>
                                         <input class="btn btn-primary" style="margin-left: 10px;" type="submit" value="EDITAR"></input>
@@ -102,9 +102,17 @@
         <form action="{{route('delete_account', Auth::id())}}" method="POST">
                     @csrf
                     @method('DELETE')
-                        <input type="submit" class="btn btn-danger" value="EXCLUIR CONTA"></input> 
+                        <input type="submit" class="btn btn-danger" onclick="return deleteTable();" value="EXCLUIR CONTA"></input>
+
         </form> 
     </div>  
     
 </div>
+
+<script>
+    function deleteTable() {
+        if(!confirm("Você realmente deseja deletar essa tabela?"))
+        event.preventDefault();
+    }
+</script>
 @stop

@@ -19,23 +19,6 @@
 </head>
 <body>
 <!--Barra de navegação
-  <nav id="bn" class="navbar fixed-top navbar-expand-lg bg-green navbar-dark p-2" class="d-flex justify-content-center">
-      <a class="navbar-brand" href="{{('http://127.0.0.1:8000/sites/index')}}"><cite title="BioRhyme text-black">MONEYAGE</cite></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"  aria-expanded="false">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <--<div class="collapse navbar-collapse" id="navbarSupportedContent">--
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a  href="#ftr" class="nav-link"><cite title="BioRhyme">Contatos</cite></a>
-          </li>
-        </ul>
-        <ul class="navbar-nav justify-content-between">
-          <li class="nav-item">
-            <a href="{{('http://127.0.0.1:8000/sites/index')}}" class="nav-link"><cite title="BioRhyme">Sobre</cite></a>
-          </li>
-        </ul>
-  </nav>
   -->
   <nav id="bn" class="navbar fixed-top navbar-expand-lg bg-green navbar-dark">
   <div class="container-fluid">
@@ -51,7 +34,7 @@
           <a class="nav-link active" aria-current="page" href="#ftr">Contato</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-link" href="http://localhost:8000/sites/about">
+          <a class="btn btn-link" href="{{route('about')}}">
             <img type = "img" src="https://img.icons8.com/external-prettycons-lineal-prettycons/50/000000/external-configuration-web-seo-prettycons-lineal-prettycons.png" width="30" height="30">
           </a>
         </li>

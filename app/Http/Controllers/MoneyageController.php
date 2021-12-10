@@ -150,7 +150,7 @@ class MoneyageController extends Controller
         $values->delete();
         global $i;
         $i -= 1;
-        return redirect('/home');
+        return redirect('/home') -> with('alert', 'Tabela deletada com sucesso!');
     }
 
     public static function sum($id){
@@ -383,5 +383,20 @@ class MoneyageController extends Controller
             }
         }
         return $max;
+    }
+
+    public static function date_format(){
+        $date = Auth::user()->date;
+        $dt = "";
+        for ($i=0; $i < strlen($date); $i++) { 
+            $dt .= $date[$i];  
+            if($date[$i + 1] == "-"){
+                break;
+            }
+        }
+        $date = str_replace($dt, ($date[strlen($date) - 2] . $date[strlen($date) - 1]) , $date);
+        $date = str_replace(("-" . $date[strlen($date) - 2] . $date[strlen($date) - 1]), "-" . $dt , $date);
+        $date = str_replace("-", "/", $date);
+        return $date;
     }
 }

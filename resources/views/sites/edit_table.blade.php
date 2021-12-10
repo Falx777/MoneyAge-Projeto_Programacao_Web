@@ -13,24 +13,24 @@
             </div>
         </div>
         <table class="table table-secondary">
-        <thead>
+        <thead >
             <tr>
             <th scope="col">Nome</th>
             <th scope="col">Valor</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody >
             @for ($i = 1; $i <= 13; $i++)
-                <form method="post"  action="{{route('update', [$id])}}">
+                <form method="post"  action="{{route('update', [$id])}}" >
                     @csrf
                     @method('PUT')
-                    <tr>
-                    <th scope="row">
-                        <input type="text" class="form-control" name="{{'name' . strval($i)}}" value="{{ (App\Models\Table::where('id','=',$id)->get('item' . strval($i)))[0]['item' . strval($i)] }}"  >
+                    <tr >
+                    <th scope="row" >
+                        <input style="margin-top: 52px;" type="text" class="form-control" name="{{'name' . strval($i)}}" value="{{ (App\Models\Table::where('id','=',$id)->get('item' . strval($i)))[0]['item' . strval($i)] }}"  >
                     </th>
-                    <td class="d-flex">
+                    <td class="d-flex" style="padding-top: 60px; padding-bottom:60px;">
                             <input type="number" class="form-control" name="{{'item' . strval($i)}}" value="{{ (App\Models\Values::where('id','=',$id)->get('item'. strval($i)))[0]['item' . strval($i)] }}" step="0.01">
-                            <input class="btn btn-success" type="submit" value="Enviar"></input>
+                            <input class="btn btn-success" type="submit" value="EDITAR"></input>
                     </td>
                     </tr>
                 </form>

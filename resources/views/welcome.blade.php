@@ -114,11 +114,11 @@
     <div style="margin: 100px;">
       <div style="padding-bottom: 50px;">
         <h3 ><strong>VISÃO</strong></h3>
-        <p style="color: black;">Almejamos que os usuarios possam melhorar suas finanças de uma forma boa e sem muita burocracia</p>
+        <p style="color: black;">Ter a maior praticidade em gerenciamento de gastos da para os usuários</p>
       </div>
       <div style="padding-bottom: 50px;">
         <h3><strong>MISSÃO</strong></h3>
-        <p style="color: black;">Nos tornamosos o melhor site de ajuda financeira do brasil e ajudar as pessoas que não sabem como usar seu dinehiro de maneira mais eficiente.Lembrando sempre que não somos um site de investimento..</p>
+        <p style="color: black;">Nos tornamos o melhor site de ajuda financeira do Brasil e ajudar as pessoas que não sabem como usar seu dinehiro de maneira mais eficiente.</p>
       </div>
       <div>
         <h3><strong>VALORES</strong></h3>
