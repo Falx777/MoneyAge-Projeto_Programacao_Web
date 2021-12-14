@@ -34,7 +34,7 @@
           <a class="nav-link active" aria-current="page" href="#ftr">Contato</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-link" href="{{route('about')}}">
+          <a class="btn btn-link" href="{{route('about')}}"  v-b-tooltip.hover title="informações e feedback">
             <img type = "img" src="https://img.icons8.com/external-prettycons-lineal-prettycons/50/000000/external-configuration-web-seo-prettycons-lineal-prettycons.png" width="30" height="30">
           </a>
         </li>
@@ -66,7 +66,7 @@
 </div>
 
 <!--rodapé-->
-<footer id="ftr" class="navbar navbar-light bg-#77a5c6" >
+<footer id="ftr" class="navbar navbar-light bg-#77a5c6"  >
   <div>
     <div class="d-flex flex-row">
       <img src="/img/redes2.png" alt="" style="padding : 10px;height: 60px; width:90px;">

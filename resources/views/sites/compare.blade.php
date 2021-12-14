@@ -10,11 +10,14 @@
     <div class="d-flex justify-content-center">
         <h3><strong>Análise de Preço</strong></h3>
     </div>
+    <div>
+        <p>Com esta função você pode verificar se uma compra nova<br> se encaixa ou não em seu orçamento mensale em quanto  <br>tempo seria preciso para pagá-la totalmente.</p>
+          </div>
     @if (\App\Http\Controllers\MoneyageController::get_compare() == FALSE)
         <form action="{{route('compare_values')}}" method="post">
         @csrf
             <div class="d-flex container" style="margin-top: 100px;">
-                <div>
+                <div class="d-flex justify-content-center">
                     <div><h4>NOME:</h4></div>
                     <div class="align-self-start d-flex" style="margin-bottom:25px;">
                         <input type="text" class="form-control" placeholder="celular" name="name" aria-describedby="basic-addon2" restricted>
@@ -31,7 +34,7 @@
     @endif
     </div>
             @if (\App\Http\Controllers\MoneyageController::get_compare() == TRUE)
-                <div >
+                <div style="width: 70%; text-align: center; margin-left: 15%" >
                 <table class="table table-bordered">
                     <thead class="thead-dark">
                         <tr class="table-light">
@@ -69,7 +72,7 @@
                 </table>
                 
                 </div>
-                <a href="http://localhost:8000/sites/compare" class="btn btn-primary d-flex justify-content-center" style="margin-top:40 px;">VER OUTRO VALOR</a>
+                <a href="http://localhost:8000/sites/compare" class="btn btn-primary d-flex justify-content-center" style="margin-top:40 px; width: 30%; margin-left:30%">VER OUTRO VALOR</a>
             @endif
         
 

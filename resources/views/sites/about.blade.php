@@ -3,17 +3,17 @@
 @section('content')  
 
 <div style="margin-top: 100px">
-    <div class="container">
+    <div class="container" style="">
         <div>
-            <div class="col-md-8">
+            <div class="col-md-8" >
                 <div >
-                    <div class="card-header"><h4>Minhas informações</h4></div>
+                    <div class="card-header"style="text-align: center;"><h4>Minhas informações</h4></div>
 
                     <div class="card-body">
                         
                             @csrf
-                            <div style="margin-top: 20px;" class="d-flex">
-                                <label for="wage" class="col-md-4 col-form-label text-md-right" style="margin-right: -180px;">Nome</label>
+                            <div style="margin-top: 20px; margin-left: 30%;" class="d-flex">
+                                <label for="wage" class="col-md-4 col-form-label text-md-right" >Nome</label>
                         
                                 <div class="col-md-6" style="margin-right: -200px;">
                                     <input id="wage" type="text" class="form-control" name="name" placeholder="{{ Auth::user()->name }}" disabled>
@@ -26,8 +26,8 @@
                                 </div> -->
                             </div>
 
-                            <div class="d-flex" style="margin-top: 20px;">
-                                <label for="date" class="col-md-4 col-form-label text-md-right" style="margin-right: -180px;">Data</label>
+                            <div class="d-flex" style="margin-top: 20px; margin-left: 30%;">
+                                <label for="date" class="col-md-4 col-form-label text-md-right" ">Data</label>
 
                                 <div class="col-md-6" style="margin-right: -200px;">
                                     <input id="date" type="text" class="form-control" name="date" placeholder="{{ \App\Http\Controllers\MoneyageController::date_format() }}" disabled>
@@ -41,8 +41,8 @@
 
                             </div>
 
-                            <div class="d-flex" style="margin-top: 20px;">
-                                <label for="gender" class="col-md-4 col-form-label text-md-right" style="margin-right: -180px;">Gênero</label>
+                            <div class="d-flex" style="margin-top: 20px; margin-left: 30%;">
+                                <label for="gender" class="col-md-4 col-form-label text-md-right">Gênero</label>
 
                                 <div class="col-md-6" style="margin-right: -200px;">
                                     <input id="gender" type="text" class="form-control" name="gender" placeholder="{{ Auth::user()->gender }}" disabled>
@@ -56,10 +56,10 @@
 
                             </div>
 
-                            <div style="margin-top: 20px;">
+                            <div style="margin-top: 20px;margin-left: 30%;">
                                 <form action="{{route('update_wage')}}" method="post"  class="d-flex">
                                     @csrf
-                                    <label for="wage" class="col-md-4 col-form-label text-md-right"  style="margin-right: -180px;">Renda</label>
+                                    <label for="wage" class="col-md-4 col-form-label text-md-right" >Renda</label>
 
                                     <div class="col-md-6" >
                                         <input id="wage" type="number" class="form-control" name="wage" value="{{ Auth::user()->wage}}" step="0.01">
@@ -90,7 +90,7 @@
             <label for="title"><h3>Dê a sua opinião sobre a moneyage:</h1></label>
         @if (Auth::user()->opinion == NULL)
                 <textarea class="form-control" id="text" name="opinion"></textarea>
-            <button class="btn btn-secondary" type="submit">Enviar</button>
+            <button class="btn btn-secondary" style="margin-left: 95%;" type="submit">Enviar</button>
         @else
                 <textarea readonly class="form-control" id="text" name="opinion" placeholder="{{ Auth::user()->opinion }}"></textarea>
         @endif
@@ -111,7 +111,7 @@
 
 <script>
     function deleteTable() {
-        if(!confirm("Você realmente deseja deletar essa tabela?"))
+        if(!confirm("Você realmente deseja deletar essa conta?"))
         event.preventDefault();
     }
 </script>
